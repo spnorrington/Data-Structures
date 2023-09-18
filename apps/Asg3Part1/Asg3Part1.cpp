@@ -55,6 +55,57 @@ void deleteListContents()
         current = temp;
     }
 }
+
+
+void push_front(T data) 
+{
+    Node* newNode = new Node();
+    newNode->data = data;
+    newNode->next = head;
+    newNode->prev = nullptr;
+    head = newNode;
+}
+
+Void push_back(T data) 
+{
+    Node* newNode = new Node();
+    newNode->data = data;
+    newNode->next = nullptr;
+    newNode->prev = tail;
+    tail = newNode;
+}
+
+void pop_back() 
+{
+    Node *lastNode = tail;
+    tail = tail.prev;
+    tail.next = nullptr;
+    delete lastNode;
+}
+
+void pop_front() 
+{
+    Node *firstNode = head;
+    head = head.next;
+    head.prev = nullptr;
+    delete firstNode;
+}
+
+void printTheList() 
+{
+    Node* current = head;
+    while (current != tail) {
+        std::cout << current->data << " ";
+    }
+    std::cout << std::endl;
+}
+void traverse(void (*doIt)(T data)) 
+{
+    Node* current = head;
+    while (current != tail) {
+        doIt(current.data);
+    }
+}
 List() // default constructor (This initializes a new linked list by calling setupList)
 {
     setupList();
@@ -65,29 +116,13 @@ List(T newData) // this constructor creates a new linked list with one
     head->data = newData;
 }
 
-~List() // destructor of the linked list class (frees memory when an object of the class goes out of scope)
-{
-    Node* current = head;
-    Node* temp = nullptr;
-    while (current != nullptr) 
-    {
-        temp = current.next;
-        delete current;
-        current = temp;
-    }
-}
 
-//copy constructor that creates a new linked list that is a copy of an existing list(the rhs list)
-List(List& rhs) 
-{ // rhs list is another object of the same class).
-    Node* current = head;
-    Node* temp = nullptr;
-    while (current != nullptr) 
-    {
-        temp = current.next;
-        delete current;
-        current = temp;
-    }
-    head = rhs.head;
-    tail = rhs.tail;
+//revised copy constructor and destructor
+List(List& rhs) { // copy constructor
+ deleteListContents();
+ head = rhs.head;
+ tail = rhs.tail;
+}
+~List(){
+ deleteListContents();
 }
