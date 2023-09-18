@@ -1,63 +1,69 @@
-// Purpose of this code is to implement the List class studied in Mod 3 to my own Library
-//
+// Purpose of this code is to implement the list class studied in Mod 3 to my own library
 
 template <typename T>
-class List 
+class List
 {
 private:
-    class Node 
+    class Node //nested class representing individual nodes in the list
     {
     public:
         T data;
-        Node* prev;
-        Node* next;
+        Node* prev;     //pointer to the previous node in the list
+        Node* next;	    //pointer to the next node in the list 
         bool isHiddenNode = false;
     };
-    Node* head;
-    Node* tail;
-    void deleteListContents();
-    void setupList();
+    Node* head;  //pointer to the first node(head) in the list
+    Node* tail;     //pointer to the last node(tail) in the list
+
+    void deleteListContents();      //frees memory by iterating                                     through the list and deleting each node
+
+    void setupList();			   //sets up the list by creating a new node and setting head and tail to point to it
+
 public:
-    List();
-    List(T newData);
-    List(List& rhs); // copy constructor
-    ~List();
-    bool  empty();
-    void push_front(T data);
-    void push_back(T data);
-    T front();
-    T back();
-    void pop_back() :
-        void pop_front();
-    void traverse(void (*doIt)(T data));
+    List();                             //default constructor
+    List(T newData);					//constructor creates new linked list with one element (newData)
+
+    List(const List& rhs); // copy constructor
+    ~List();                         // destructor      
+    bool empty();				   // returns true if the list is empty 
+    void push_front(T data);         // adds a new node with data at the front of the list
+    void push_back(T data);         // adds a new node with data at the back of the list
+    T front();                      // returns the data stored in the first node of the list
+    T back();                       // returns the data stored in the last node of the list
+    void pop_back();                 // removes the last node from the list
+    void pop_front();               // removes the first node from the list
+    void printTheList();
+
+    void traverse(void (*doIt)(T data));        //iterates through the list and calls the function doIt on each node's data
 };
 
+// Define member functions outside the class
 
-//Setting up the initial structure of a linked list
-void setupList() 
+template <typename T>
+void List<T>::setupList()
 {
-    Node* newNode = new Node(); //serves as both head and tail of the list
+    Node* newNode = new Node();
     newNode->next = nullptr;
     newNode->prev = nullptr;
     head = newNode;
     tail = newNode;
 }
 
-
-//frees up memory used by the list
-void deleteListContents() 
+template <typename T>
+void List<T>::deleteListContents()
 {
     Node* current = head;
     Node* temp = nullptr;
-    while (current != nullptr) {
-        temp = current.next;
+    while (current != nullptr) 
+    {
+        temp = current->next;
         delete current;
         current = temp;
     }
 }
 
-
-void push_front(T data) 
+template <typename T>
+void List<T>::push_front(T data)
 {
     Node* newNode = new Node();
     newNode->data = data;
@@ -66,63 +72,109 @@ void push_front(T data)
     head = newNode;
 }
 
-Void push_back(T data) 
+template <typename T>
+void List<T>::push_back(T data)
 {
     Node* newNode = new Node();
     newNode->data = data;
     newNode->next = nullptr;
     newNode->prev = tail;
+    tail->next = newNode;
     tail = newNode;
 }
 
-void pop_back() 
+template <typename T>
+void List<T>::pop_back()
 {
-    Node *lastNode = tail;
-    tail = tail.prev;
-    tail.next = nullptr;
-    delete lastNode;
+    if (tail != nullptr) 
+    {
+        Node* lastNode = tail;
+        tail = tail->prev;
+        if (tail != nullptr) 
+        {
+            tail->next = nullptr;
+        }
+        delete lastNode;
+    }
 }
 
-void pop_front() 
+template <typename T>
+void List<T>::pop_front()
 {
-    Node *firstNode = head;
-    head = head.next;
-    head.prev = nullptr;
-    delete firstNode;
+    if (head != nullptr) 
+    {
+        Node* firstNode = head;
+        head = head->next;
+        if (head != nullptr) 
+        {
+            head->prev = nullptr;
+        }
+        delete firstNode;
+    }
 }
 
-void printTheList() 
+template <typename T>
+void List<T>::printTheList()
 {
     Node* current = head;
-    while (current != tail) {
+    while (current != nullptr) 
+    {
         std::cout << current->data << " ";
+        current = current->next;
     }
     std::cout << std::endl;
 }
-void traverse(void (*doIt)(T data)) 
+
+template <typename T>
+void List<T>::traverse(void (*doIt)(T data))
 {
     Node* current = head;
-    while (current != tail) {
-        doIt(current.data);
+    while (current != nullptr) 
+    {
+        doIt(current->data);
+        current = current->next;
     }
 }
-List() // default constructor (This initializes a new linked list by calling setupList)
+
+template <typename T>
+List<T>::List()
 {
     setupList();
 }
-List(T newData) // this constructor creates a new linked list with one 
-{                   /// element (newData) where that element typically the data type of elements stored in the list
+
+template <typename T>
+List<T>::List(T newData)
+{
     setupList();
     head->data = newData;
 }
 
+template <typename T>
+List<T>::List(const List& rhs)
+{
+    setupList();
+    Node* currentRHS = rhs.head;
+    Node* current = head;
+    while (currentRHS != nullptr) 
+    {
+        current->data = currentRHS->data;
+        if (currentRHS->next != nullptr) 
+        {
+            current->next = new Node();
+            current->next->prev = current;
+            current = current->next;
+        }
+        else 
+        {
+            tail = current;
+        }
+        currentRHS = currentRHS->next;
+    }
+}
 
-//revised copy constructor and destructor
-List(List& rhs) { // copy constructor
- deleteListContents();
- head = rhs.head;
- tail = rhs.tail;
+template <typename T>
+List<T>::~List()
+{
+    deleteListContents();
 }
-~List(){
- deleteListContents();
-}
+
