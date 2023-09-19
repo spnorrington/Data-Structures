@@ -15,7 +15,6 @@ template <typename Thing>
 class Bag //create an empty bag
 {
 public:
-	Bag()
 	{
 		bagContents = List<Thing>();
 	}
