@@ -1,5 +1,8 @@
 
-// Purpose: To create a second version of the bag class, replacing the vector class with the list class made in module 3 part 2
+// Purpose: To create a second version of the bag class, replacing the vector class with the list class made in module 3 part 1
+
+#ifndef BAG_H
+#define BAG_H
 
 
 
@@ -16,7 +19,7 @@ public:
 	{
 		bagContents = List<Thing>();
 	}
-    void insert(Thing aThing);
+    void insert(Thing aThing)
     {
         bagContents.push_back(aThing);
         bagSize++;
@@ -57,3 +60,4 @@ List<Thing> bagContents;
 };
 
 
+#endif // !BAG_H
