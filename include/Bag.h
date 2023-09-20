@@ -10,8 +10,10 @@ template <typename Thing>
 class Bag //create an empty bag
 {
 public:
+    Bag()
 	{
 		bagContents = List<Thing>();
+		bagSize = 0;
 	}
     void insert(Thing aThing)
     {
@@ -23,7 +25,8 @@ public:
         Thing aThing;
         if (bagContents.size() > 0)
 		{
-            aThing = bagContents(bagSize);
+            aThing = bagContents.back();
+            bagContents.pop_back();
             bagSize--;
 		}
         else
