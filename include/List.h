@@ -26,7 +26,7 @@ private:
     void setupList();			   //sets up the list by creating a new node and setting head and tail to point to it
 
 public:
-    List();                             //default constructor
+    List() : head(nullptr), tail(nullptr) {}                       //default constructor
     List(T newData);					//constructor creates new linked list with one element (newData)
 
     List(const List& rhs); // copy constructor
@@ -75,7 +75,15 @@ void List<T>::push_front(T data)
     newNode->data = data;
     newNode->next = head;
     newNode->prev = nullptr;
-    head = newNode;
+    if (empty()) 
+    {
+        head = newNode;
+        tail = newNode;
+    }
+    else {
+        head->prev = newNode;
+        head = newNode;
+    }
 }
 
 template <typename T>
@@ -86,37 +94,39 @@ void List<T>::push_back(T data)
     newNode->next = nullptr;
     newNode->prev = tail;
     tail->next = newNode;
-    tail = newNode;
+    if (empty()) 
+    {
+        tail = newNode;
+        head = newNode;
+    }
+    else {
+        tail->next = newNode;
+        tail = newNode;
+    }
 }
 
 template <typename T>
 void List<T>::pop_back()
 {
-    if (tail != nullptr)
-    {
-        Node* lastNode = tail;
-        tail = tail->prev;
-        if (tail != nullptr)
-        {
-            tail->next = nullptr;
-        }
-        delete lastNode;
-    }
+    Node* lastNode = tail->prev;
+    tail->prev = lastNode->prev;
+    Node* newLastNode = tail->prev;
+    newLastNode->next = tail;
+    delete lastNode;
+    lastNode = nullptr;
 }
 
 template <typename T>
 void List<T>::pop_front()
 {
-    if (head != nullptr)
-    {
-        Node* firstNode = head;
-        head = head->next;
-        if (head != nullptr)
-        {
-            head->prev = nullptr;
-        }
-        delete firstNode;
-    }
+    Node* firstNode = head->next;
+    head->next = firstNode.next;
+    Node* newFirstNode = head.next;
+    newFirstNode.prev = head;
+    delete firstNode;
+    firstNode = nullptr;
+ 
+
 }
 
 template <typename T>
@@ -126,7 +136,6 @@ void List<T>::printTheList()
     while (current != nullptr)
     {
         std::cout << current->data << " ";
-        current = current->next;
     }
     std::cout << std::endl;
 }
@@ -158,24 +167,9 @@ List<T>::List(T newData)
 template <typename T>
 List<T>::List(const List& rhs)
 {
-    setupList();
-    Node* currentRHS = rhs.head;
-    Node* current = head;
-    while (currentRHS != nullptr)
-    {
-        current->data = currentRHS->data;
-        if (currentRHS->next != nullptr)
-        {
-            current->next = new Node();
-            current->next->prev = current;
-            current = current->next;
-        }
-        else
-        {
-            tail = current;
-        }
-        currentRHS = currentRHS->next;
-    }
+    deleteListContents();
+    head = rhs.head;
+    tail = rhs.tail;
 }
 
 template <typename T>
