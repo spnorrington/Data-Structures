@@ -3,8 +3,6 @@
 // Purpose of this code is to use the linked list class created in part 1 to create a second version of the Bag class, replacing vector class with your list class
 //
 
-#ifndef LIST_H
-#define LIST_H
 
 #pragma once
 #include <iostream>
@@ -186,4 +184,3 @@ List<T>::~List()
     deleteListContents();
 }
 
-#endif // LIST_H
