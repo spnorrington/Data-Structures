@@ -1,11 +1,6 @@
 
 // Purpose: To create a second version of the bag class, replacing the vector class with the list class made in module 3 part 1
 
-#ifndef BAG_H
-#define BAG_H
-
-
-
 #pragma once
 #include <iostream>
 #include "List.h"
@@ -58,5 +53,3 @@ List<Thing> bagContents;
 	int bagSize = 0;
 };
 
-
-#endif // !BAG_H
