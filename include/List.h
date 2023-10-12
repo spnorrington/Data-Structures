@@ -1,8 +1,4 @@
 
-// Assignment 3 - Part 1
-// Purpose of this code is to use the linked list class created in part 1 to create a second version of the Bag class, replacing vector class with your list class
-//
-
 
 #pragma once
 #include <iostream>
