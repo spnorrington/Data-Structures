@@ -1,10 +1,13 @@
+
+
+
 #pragma once
 #include "List.h"
 template <typename T>
 class CircularList : public List<T>
 {
 private:
-    typename CircularList<T>::iterator findInList(T data);
+    typename CircularList<T>::iterator findInList(T data)
     {
         //
         typename CircularList<T>::iterator placeInList = this->begin();
@@ -26,8 +29,8 @@ public:
 
         // Structure of a circular linked list: tail of the list points at the head and the head points at the tail.
 
-        this->tail->next = this->head->next;
-        this->head->next->prev = this->tail;
+        this->tail->next = this->head;
+        this->head->prev = this->tail;
     }
 
 
@@ -52,9 +55,9 @@ public:
             newNode->prev = this->head;
             this->head->next = newNode;
 
-            // Update tail to circular list structure
-            this->tail->next = this->head->next;
-            this->head->next->prev = this->tail;
+            // Updated tail for circular list structure maintenance
+            this->tail->next = this->head;
+            this->head->prev = this->tail;
         }
     }
 
