@@ -116,9 +116,9 @@ template <typename T>
 void List<T>::pop_front()
 {
     Node* firstNode = head->next;
-    head->next = firstNode.next;
-    Node* newFirstNode = head.next;
-    newFirstNode.prev = head;
+    head->next = firstNode->next;
+    Node* newFirstNode = head->next;
+    newFirstNode->prev = head;
     delete firstNode;
     firstNode = nullptr;
  
@@ -132,6 +132,7 @@ void List<T>::printTheList()
     while (current != nullptr)
     {
         std::cout << current->data << " ";
+        current = current->next;
     }
     std::cout << std::endl;
 }
