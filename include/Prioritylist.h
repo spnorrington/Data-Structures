@@ -8,7 +8,7 @@
 #pragma once	
 
 
-#include "list.h" // Include the list.h header file
+#include "List.h" // Include the list.h header file
 
 // Structure for items with priority
 template <typename T>      // template declaration (specifying PriorityItem struct is a class template)

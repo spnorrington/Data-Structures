@@ -4,7 +4,7 @@
 //// Author: <adam.lewis@athens.edu>
 
 #include <iostream>
-#include "List.hpp"
+#include "List.h"
 
 void printItem(int& item) {
     std::cout << item << " ";
