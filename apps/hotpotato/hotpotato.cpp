@@ -8,6 +8,7 @@
 
 
 #include <iostream>
+#include <cmath>
 #include "Circularlist.hpp"
 
 
@@ -32,31 +33,38 @@ int main()
         circle.push_back(i);
     }
 
-    typename CircularList<int>::iterator current = circle.begin();
+    typename CircularList<int>::iterator data = circle.begin();
+    typename CircularList<int>::iterator data = circle.end();
+    int remainingPeople = numberOfpeople; // Manual count of remaining people
 
     // Simulate the elimination process
-    while (!circle.empty())
+    while (remainingPeople > 1) // Check the number of remaining people
     {
         for (int i = 0; i < numberOfpasses; ++i)
         {
-            ++current;
-            if (current == circle.end())
+            if (!i == circle.end())
             {
-                current = circle.begin();
-            }
+				data = circle.begin();
+			}
+			else
+			{
+				++data;
+			}
+				data = circle.begin();
+			}
         }
-    }
-
-    // Eliminate the current person
-    std::cout << "Person " << *current << " is eliminated." << std::endl;
-    current = circle.erase(current);
-    if (current == circle.end())
-    {
-        current = circle.begin();
+        ++numberOfpasses;
+        --remainingPeople;
     }
 
     // Print the last person standing
-    std::cout << "The last person standing is: " << *current << std::endl;
+    if (it == circle.end())
+    {
+        it = circle.begin();
+    }
+
+
+    std::cout << "The last person standing is: " << *it << std::endl;
 
     return 0;
 
