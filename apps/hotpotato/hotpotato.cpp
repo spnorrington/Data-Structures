@@ -7,24 +7,59 @@
 
 
 
-#include <iostream>
-#include "List.h" 
 #include "Circularlist.hpp"
-
-
-using namespace std;
-#include <functional>
-template <typename T>
-int hotpotato(int players, int passes) {
-	Stack<T> player;
-
 #include <iostream>
 
+int josephus(int N, int M) {
+    CircularList<int> circle;
 
-	int main()
-	{
-		std::cout << "Hello World!\n";
-	}
+    // Populate the circular list with values from 1 to N
+    for (int i = 1; i <= N; ++i) {
+        circle.push_back(i);
+    }
+
+    typename CircularList<int>::iterator current = circle.begin();
+
+    // Simulate the elimination process
+    while (N > 1) {
+        for (int i = 0; i < M; ++i) {
+            ++current;
+            if (current == circle.end()) {
+                current = circle.begin();
+            }
+        }
+
+        // Eliminate the current person
+        typename CircularList<int>::iterator next = current;
+        ++next;
+
+        if (next == circle.end()) {
+            next = circle.begin();
+        }
+
+        circle.erase(current);
+        current = next;
+
+        --N;
+    }
+
+    // The last remaining person is the winner
+    return circle.front();
+}
+
+int main() {
+    int N, M;
+    std::cout << "Enter the number of people (N): ";
+    std::cin >> N;
+    std::cout << "Enter the elimination interval (M): ";
+    std::cin >> M;
+
+    int winner = josephus(N, M);
+
+    std::cout << "The winner is person " << winner << std::endl;
+
+    return 0;
+}
 
 	// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 	// Debug program: F5 or Debug > Start Debugging menu
