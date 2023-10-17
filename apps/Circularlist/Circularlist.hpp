@@ -6,6 +6,22 @@
 template <typename T>
 class CircularList : public List<T>
 {
+public:
+    
+    class iterator : public List<T>::iterator
+    {
+    public:
+        iterator(typename List<T>::iterator it) : List<T>::iterator(it) {}
+    };
+    iterator begin() 
+    {
+        return iterator(List<T>::begin());
+    }
+    iterator end() 
+    {
+        return iterator(List<T>::end());
+    }
+
 private:
     typename CircularList<T>::iterator findInList(T data)
     {
