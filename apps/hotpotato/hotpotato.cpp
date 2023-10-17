@@ -8,62 +8,60 @@
 
 
 #include <iostream>
-#include "List.h" 
-#include "Circularlist.hpp"
+#include "CircularList.hpp"
 
-int josephus(int N, int M);
 
-int main() {
-    int N, M;
-    std::cout << "Enter the number of people (N): ";
-    std::cin >> N;
-    std::cout << "Enter the elimination interval (M): ";
-    std::cin >> M;
 
-    int winner = josephus(N, M);
 
-    std::cout << "The winner is person " << winner << std::endl;
+int main()
+{
+    int numberOfpeople;
+    int numberOfpasses;
 
-    return 0;
-}
 
-int josephus(int N, int M) {
+    std::cout << "Enter the number of people: ";
+    std::cin >> numberOfpeople;
+    std::cout << "Enter the elimination interval: ";
+    std::cin >> numberOfpasses;
+
     CircularList<int> circle;
 
-    // Populate the circular list with values from 1 to N
-    for (int i = 1; i <= N; ++i) {
+    //initalize the circular list
+    for (int i = 1; i <= numberOfpeople; ++i)
+    {
         circle.push_back(i);
     }
 
     typename CircularList<int>::iterator current = circle.begin();
 
     // Simulate the elimination process
-    while (N > 1) {
-        for (int i = 0; i < M; ++i) {
+    while (!circle.empty())
+    {
+        for (int i = 0; i < numberOfpasses; ++i)
+        {
             ++current;
-            if (current == circle.end()) {
+            if (current == circle.end())
+            {
                 current = circle.begin();
             }
         }
-
-        // Eliminate the current person
-        typename CircularList<int>::iterator next = current;
-        ++next;
-
-        if (next == circle.end()) {
-            next = circle.begin();
-        }
-
-        circle.erase(current);
-        current = next;
-
-        --N;
     }
 
-    // The last remaining person is the winner
-    return circle.front();
-}
+    // Eliminate the current person
+    std::cout << "Person " << *current << " is eliminated." << std::endl;
+    current = circle.erase(current);
+    if (current == circle.end())
+    {
+        current = circle.begin();
+    }
 
+    // Print the last person standing
+    std::cout << "The last person standing is: " << *current << std::endl;
+
+    return 0;
+
+
+}
 	// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 	// Debug program: F5 or Debug > Start Debugging menu
 
