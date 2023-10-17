@@ -71,7 +71,7 @@ void List<T>::push_front(T data)
     newNode->data = data;
     newNode->next = head;
     newNode->prev = nullptr;
-    if (empty())
+    if (empty()) 
     {
         head = newNode;
         tail = newNode;
@@ -90,7 +90,7 @@ void List<T>::push_back(T data)
     newNode->next = nullptr;
     newNode->prev = tail;
     tail->next = newNode;
-    if (empty())
+    if (empty()) 
     {
         tail = newNode;
         head = newNode;
@@ -121,7 +121,7 @@ void List<T>::pop_front()
     newFirstNode->prev = head;
     delete firstNode;
     firstNode = nullptr;
-
+ 
 
 }
 
@@ -174,3 +174,4 @@ List<T>::~List()
 {
     deleteListContents();
 }
+
