@@ -1,4 +1,4 @@
-
+// Implementation of a double linked list
 
 #pragma once
 #include <iostream>
@@ -104,25 +104,28 @@ void List<T>::push_back(T data)
 template <typename T>
 void List<T>::pop_back()
 {
-    Node* lastNode = tail->prev;
-    tail->prev = lastNode->prev;
-    Node* newLastNode = tail->prev;
-    newLastNode->next = tail;
-    delete lastNode;
-    lastNode = nullptr;
+    if (!empty))
+    {
+        Node* lastNode = tail->prev;
+        tail->prev = lastNode->prev;
+        Node* newLastNode = tail->prev;
+        newLastNode->next = tail;
+        delete lastNode;
+    }
 }
 
 template <typename T>
 void List<T>::pop_front()
 {
-    Node* firstNode = head->next;
-    head->next = firstNode->next;
-    Node* newFirstNode = head->next;
-    newFirstNode->prev = head;
-    delete firstNode;
-    firstNode = nullptr;
- 
+    if (!empty())
+    {
+        Node* firstNode = head->next;
+        head->next = firstNode->next;
+        Node* newFirstNode = head->next;
+        newFirstNode->prev = head;
+        delete firstNode;
 
+    }
 }
 
 template <typename T>
@@ -164,14 +167,27 @@ List<T>::List(T newData)
 template <typename T>
 List<T>::List(const List& rhs)
 {
-    deleteListContents();
-    head = rhs.head;
-    tail = rhs.tail;
+    if (this != &rhs) 
+    {
+        Node* current = rhs.head;
+        while (current != nullptr) 
+        {
+            // Create and copy new nodes
+            Node* newNode = new Node;
+            newNode->data = current->data;
+
+            // 
+
+            current = current->next; // Moves to next node and iterates over list
+        }
+    }
 }
 
 template <typename T>
 List<T>::~List()
 {
     deleteListContents();
+    head = nullptr;
+    tail = nullptr;
 }
 

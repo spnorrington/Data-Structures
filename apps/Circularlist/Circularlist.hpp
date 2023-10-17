@@ -29,8 +29,8 @@ public:
 
         // Structure of a circular linked list: tail of the list points at the head and the head points at the tail.
 
-        this->tail->next = this->head;
-        this->head->prev = this->tail;
+        this->tail->next = this->head;   //connecting tail to head
+        this->head->prev = this->tail;   //connecting head to tail  
     }
 
 
@@ -55,9 +55,9 @@ public:
             newNode->prev = this->head;
             this->head->next = newNode;
 
-            // Updated tail for circular list structure maintenance
+            // maintain circularity after insertion
             this->tail->next = this->head;
-            this->head->prev = this->tail;
+            this->head->prev = this->tail; 
         }
     }
 
@@ -79,9 +79,11 @@ public:
             newNode->next = this->tail;
             this->tail->prev = newNode;
 
-            // Update head to maintain circularity
+            // updating head prev to point to new tail
             this->head->next->prev = this->tail;
-            this->tail->next = this->head->next;
+
+            // Setting tail next to point to head, completeing the circle
+            this->tail->next = this->head->next;  
         }
     }
     //traverses the list using erase and push_back to move the node to the back of the list
