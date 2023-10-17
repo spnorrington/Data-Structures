@@ -5,6 +5,7 @@
 
 //Thus, if M = 0 and N = 5, players are eliminated in order, and player 5 wins.If M = 1 and N = 5, the order of elimination is 2, 4, 1, 5.  Write a program that solves the Josephus problem for any input values of M and N.Try  to make your program as efficient as possible if you used a a list, stack, or queue in this problem.
 
+//File Name: hotpotato.cpp
 
 
 #include <iostream>
@@ -14,69 +15,40 @@
 
 
 
-int main()
+int main() 
 {
-    int numberOfpeople;
-    int numberOfpasses;
-
+    int numberOfPeople;
+    int numberOfPasses;
 
     std::cout << "Enter the number of people: ";
-    std::cin >> numberOfpeople;
+    std::cin >> numberOfPeople;
     std::cout << "Enter the elimination interval: ";
-    std::cin >> numberOfpasses;
+    std::cin >> numberOfPasses;
 
     CircularList<int> circle;
 
-    //initalize the circular list
-    for (int i = 1; i <= numberOfpeople; ++i)
+    // Initialize circular list
+    for (int i = 1; i <= numberOfPeople; ++i) 
     {
         circle.push_back(i);
     }
 
-    typename CircularList<int>::iterator data = circle.begin();
-    typename CircularList<int>::iterator data = circle.end();
-    int remainingPeople = numberOfpeople; // Manual count of remaining people
+    typename CircularList<int>::iterator it = circle.begin();
 
-    // Simulate the elimination process
-    while (remainingPeople > 1) // Check the number of remaining people
-    {
-        for (int i = 0; i < numberOfpasses; ++i)
+    //  Elimation loop
+    while (circle.size() > 1) {
+        for (int i = 1; i < numberOfPasses; ++i) 
         {
-            if (!i == circle.end())
-            {
-				data = circle.begin();
-			}
-			else
-			{
-				++data;
-			}
-				data = circle.begin();
-			}
+            ++it;
         }
-        ++numberOfpasses;
-        --remainingPeople;
+
+        // Eliminate the person at 'it'
+        it = circle.erase(it);
     }
 
-    // Print the last person standing
-    if (it == circle.end())
-    {
-        it = circle.begin();
-    }
-
-
-    std::cout << "The last person standing is: " << *it << std::endl;
+    // Prints the last person standing in the circle
+    std::cout << "The last person standing is: " << circle.front() << std::endl;
 
     return 0;
-
-
 }
-	// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-	// Debug program: F5 or Debug > Start Debugging menu
-
-	// Tips for Getting Started: 
-	//   1. Use the Solution Explorer window to add/manage files
-	//   2. Use the Team Explorer window to connect to source control
-	//   3. Use the Output window to see build output and other messages
-	//   4. Use the Error List window to view errors
-	//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-	//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+}
