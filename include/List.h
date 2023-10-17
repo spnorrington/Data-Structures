@@ -2,6 +2,7 @@
 
 #pragma once
 #include <iostream>
+
 template <typename T>
 class List
 {
@@ -10,20 +11,21 @@ private:
     {
     public:
         T data;
-        Node* prev;     //pointer to the previous node in the list
-        Node* next;	    //pointer to the next node in the list 
+        Node* prev;                 //pointer to the previous node in the list
+        Node* next;	               //pointer to the next node in the list 
         bool isHiddenNode = false;
     };
+
     Node* head;  //pointer to the first node(head) in the list
     Node* tail;     //pointer to the last node(tail) in the list
 
-    void deleteListContents();      //frees memory by iterating                                     through the list and deleting each node
+    void deleteListContents();      //frees memory
+    void setupList();			   //sets up the list
 
-    void setupList();			   //sets up the list by creating a new node and setting head and tail to point to it
 
 public:
     List() : head(nullptr), tail(nullptr) {}                       //default constructor
-    List(T newData);					//constructor creates new linked list with one element (newData)
+    List(T newData);					//constructor creates new linked list with one element                                   (newData)
 
     List(const List& rhs); // copy constructor
     ~List();                         // destructor      
@@ -36,7 +38,7 @@ public:
     void pop_front();               // removes the first node from the list
     void printTheList();
 
-    void traverse(void (*doIt)(T data));        //iterates through the list and calls the function doIt on each node's data
+    void traverse(void (*doIt)(T data));        //iterates through the list and calls the                                               function doIt on each node's data
 };
 
 // Define member functions outside the class
@@ -76,7 +78,8 @@ void List<T>::push_front(T data)
         head = newNode;
         tail = newNode;
     }
-    else {
+    else 
+    {
         head->prev = newNode;
         head = newNode;
     }
@@ -175,8 +178,17 @@ List<T>::List(const List& rhs)
             // Create and copy new nodes
             Node* newNode = new Node;
             newNode->data = current->data;
-
-            // 
+            if (head == nullptr)
+            {
+                head = newNode;
+                tail = newNode;
+            }
+            else
+            {
+                tail->next = newNode;
+                newNode->prev = tail;
+                tail = newNode; 
+            }
 
             current = current->next; // Moves to next node and iterates over list
         }
@@ -187,7 +199,31 @@ template <typename T>
 List<T>::~List()
 {
     deleteListContents();
-    head = nullptr;
-    tail = nullptr;
+}
+
+template <typename T>
+bool List<T>::empty()
+{
+    return head == nullptr;
+}
+
+template <typename T>
+T List<T>::front()
+{
+    if (!empty())
+    {
+        return head->data;
+    }
+    throw std::runtime_error("List is empty.");
+}
+
+template <typename T>
+T List<T>::back()
+{
+    if (!empty())
+    {
+        return tail->data;
+    }
+    throw std::runtime_error("List is empty.");
 }
 
