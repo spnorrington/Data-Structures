@@ -57,7 +57,7 @@ public:
 
             // maintain circularity after insertion
             this->tail->next = this->head;
-            this->head->prev = this->tail; 
+            this->head->prev = this->tail;
         }
     }
 
@@ -83,7 +83,7 @@ public:
             this->head->next->prev = this->tail;
 
             // Setting tail next to point to head, completeing the circle
-            this->tail->next = this->head->next;  
+            this->tail->next = this->head->next;
         }
     }
     //traverses the list using erase and push_back to move the node to the back of the list
