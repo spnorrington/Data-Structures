@@ -20,10 +20,27 @@ private:
 public:
 	// Default constructor, creates empty graph
 	AdjListGraph() : Graph<N>() { };
-	// Get the vertex map from the Graph we're copying
-	AdjListGraph(const AdjListGraph& other) : Graph<N>() { }
-	// Don't forget to overload the assignment operator
-	AdjListGraph& operator= (const AdjListGraph& source) {}
+
+
+	// Copy Constructor | Get the vertex map from the Graph we're copying
+	AdjListGraph(const AdjListGraph& other) : Graph<N>(other.nodeVector, other.edgesVector) 
+	{
+		nodeVector = other.nodeVector;  // Copy nodeVector
+		edgesVector = other.edgesVector;  // Copy edgesVector
+	}
+
+	// Overloaded assignment operator
+	AdjListGraph& operator= (const AdjListGraph& source) 
+	{
+		if (this != &source) 
+		{
+			// Copy the contents of source into this graph
+			nodeVector = source.nodeVector;
+			edgesVector = source.edgesVector;
+		}
+		return *this;
+	}
+
 	// Add the nodes in the list to graph
 	AdjListGraph(std::vector<N> newNodes, std::vector<pair<N, N>> newEdges) :
 		Graph<N>(newNodes, newEdges) { }
