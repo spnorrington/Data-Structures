@@ -17,6 +17,7 @@ private:
 	using Edges = std::list<std::pair<int, int>>; 
 	std::vector<N> nodeVector;
 	std::vector<Edges> edgesVector;
+
 public:
 	// Default constructor, creates empty graph
 	AdjListGraph() : Graph<N>() { };
@@ -30,7 +31,7 @@ public:
 	}
 
 	// Overloaded assignment operator
-	AdjListGraph& operator= (const AdjListGraph& source) 
+	AdjListGraph& operator=(const AdjListGraph& source) 
 	{
 		if (this != &source) 
 		{
@@ -44,11 +45,51 @@ public:
 	// Add the nodes in the list to graph
 	AdjListGraph(std::vector<N> newNodes, std::vector<pair<N, N>> newEdges) :
 		Graph<N>(newNodes, newEdges) { }
-	// Clean up behind ourselves
+
 	~AdjListGraph() { }
-	virtual bool adjacent(N x, N y) {  }
-	virtual std::vector<N> neighbors(N x) {  }
-	virtual void addNode(N node) { }
-	virtual void addEdge(N x, N y) { }
-	virtual void deleteEdge(N x, N y) { }
+
+	virtual bool adjacent(N x, N y) 
+	{
+		//Adjacency Check
+		return false;
+	}
+
+	virtual std::vector<N> neighbors(N x) 
+	{
+		//Neighbor retrieval
+		std::vector<N> neighbors;
+		return neighbors;
+	}
+	virtual void addNode(N node) 
+	{
+		nodeVector.push_back(node); // Add the new node to the nodeVector
+		edgesVector.push_back(Edges()); // Create an empty list of edges for the new node
+	}
+
+	virtual void addEdge(N x, N y) //** Outside resource used for this function, see below
+	{
+		if (std::find(nodeVector.begin(), nodeVector.end(), x) != nodeVector.end() &&
+			std::find(nodeVector.begin(), nodeVector.end(), y) != nodeVector.end()) 
+		{
+			edgesVector[std::distance(nodeVector.begin(), std::find(nodeVector.begin(), nodeVector.end(), x))].push_back(std::make_pair(x, y));
+			edgesVector[std::distance(nodeVector.begin(), std::find(nodeVector.begin(), nodeVector.end(), y))].push_back(std::make_pair(y, x));
+		}
+	}
+	virtual void deleteEdge(N x, N y) //** Outside resource used for this function, see below
+	{
+		if (std::find(nodeVector.begin(), nodeVector.end(), x) != nodeVector.end() &&
+			std::find(nodeVector.begin(), nodeVector.end(), y) != nodeVector.end()) 
+		{
+			edgesVector[std::distance(nodeVector.begin(), std::find(nodeVector.begin(), nodeVector.end(), x))].remove(std::make_pair(x, y));
+			edgesVector[std::distance(nodeVector.begin(), std::find(nodeVector.begin(), nodeVector.end(), y))].remove(std::make_pair(y, x));
+		}
+	}
 };
+
+
+
+
+// Sources //
+
+// https://stackoverflow.com/questions/65959282/working-of-findvector-begin-vector-end-ai-vector-end
+// https://www.geeksforgeeks.org/vectorbegin-vectorend-c-stl/

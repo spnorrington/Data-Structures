@@ -7,13 +7,15 @@
 #pragma once
 
 #include <vector>
+#include <list>
 
 
 
 template <class N>
-class Graph {
+class Graph 
+{
 public:
-	// Default constuctor, create empty
+	// Default constructor, create empty
 	Graph() {};
 	Graph(std::vector<N> nodes, std::vector<std::pair<N, N>> edges) {};
 	virtual ~Graph() {};
