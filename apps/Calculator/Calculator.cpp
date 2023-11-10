@@ -24,12 +24,47 @@ int main()
     cout << "Type a fully parenthsized expression" << endl;
     getline(cin, express);
 
+    // Check if parentheses are balanced before proceeding
+    if (!isBalanced(expression)) 
+    {
+        cout << "Error: Unbalanced parentheses!" << endl;
+        return 1; // Exit with an error code
+    }
     cout << "Enter 'p' to see the prefix form, " << endl;
     cout << "      'i' to see the infix form, " << endl;
     cout << "   or 't' to see the postfix form: ";
     double answer = readAndEvaluate(express, notation);
     cout << "That evaluates to " << answer << endl;
     return 0;
+}
+
+
+// Function to check if parentheses are balanced
+bool isBalanced(const string& expression) 
+{
+    const char LEFTPAREN = '(';
+    const char RIGHTPAREN = ')';
+    stack<char> store;
+string::size_type  placeInString;
+    char next;
+    bool failed = false;
+    for (i = 0; !failed && (placeInString < expression.length); ++i) 
+    {
+        next = expression[i];
+        if (next == LEFTPAREN) 
+        {
+            store.push(next);
+        }
+        else if ((next == RIGHTPAREN) && !store.empty()) 
+        {
+            store.pop()
+        }
+        else if ((next == RIGHTPAREN) && store.empty()) 
+        {
+            failed = true;
+        }
+    }
+    return (store.empty() && !failed);
 }
 double readAndEvaluate(istream& ins) 
 {
