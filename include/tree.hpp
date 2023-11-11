@@ -1,36 +1,67 @@
-// This Program demonstrates the use of a Tree using Smart Pointers
+// This Program demonstrates a basic implementation of a binary tree in C++
+// A Tree Class, referenced counted
 
 #pragma once
 
+#include <iostream>
+#include <functional>
+#include <memory> // for shared_ptr
+
+using namespace std;
 
 
-
-template<class V>
+template<typename V>
 class Tree 
 {
 private:
     struct Node 
     {
-        Node(V v, Node* l, Node* r) : value(v), left(l), right(r) {}
+        Node(V v, shared_ptr<Node>& l, shared_ptr<Node>& r) :   // shared_ptr is being used for memory management
+            value(v), left(l), right(r) {}
         V value;
-        Node* left;
-        Node* right;
+        shared_ptr<Node> left;
+        shared_ptr<Node> right;
     };
-    explicit Tree(Node* node) : root(node) {}
-    Node* root;
+    explicit Tree(shared_ptr<Node>& node) : root(node) {}
+    shared_ptr<Node> root;
+
+
 public:
     Tree() {}
-    Tree(Tree* lft, V value, Tree rgt) :
-        root(Node(val, lft->root, rgt.root)) {}
-    bool isEmpty() const;
-    V root() const;
-    Tree* left() const;
-    Tree* right() const;
-    bool member(V x) const;
-    bool isLeaf() const;
+    Tree(Tree const& lft, V value, Tree const& rgt) :
+        root(Node(value, lft.root, rgt.root)) {}
+
+    bool isEmpty() const
+    {
+        return !root;
+    }
+    V root() const { return root->value; }
+    Tree& left() const { return root->left; }
+    Tree& right() const { return root->right; }
+
+    bool member(V x) const
+    {
+        if (isEmpty())
+            return false;
+        V y = root();
+        if (x < y)
+            return left().member(x);
+        else if (y < x)
+            return right().member(x);
+        else
+            return true;
+    }
+
+    bool isLeaf() const; // Leaf is a node with no children
 }
+    {
+        return !root || (!root->left && !root->right);
 
 
+
+
+
+}
 // Terminology //
 // 
 // Tree: A collection of nodes
