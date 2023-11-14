@@ -1,5 +1,6 @@
 // This Program demonstrates a basic implementation of a binary tree in C++
-// A Tree Class, referenced counted
+// A Tree Class
+// While assignment details did not require it, functions of the binary search tree have been added as this is the most referenced type of tree structure in the course material and is the most common type of tree structure used in programming in my opinion
 
 #pragma once
 
