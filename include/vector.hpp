@@ -15,24 +15,6 @@
 #pragma once
 #include <iostream>
 
-
-//template <typename T>
-//class Vector 
-//{
-//public:
-//	void put(T data, int index);
-//	void push_back(T data);
-//	T at(int index);
-//	int size();
-//	int capacity();
-//	void traverse();
-//private:
-//	T* arr = new T[1];
-//	int vCapacity = 1;
-//	int length = 1;
-//}
-
-
 template <typename T>
 class Vector
 {
