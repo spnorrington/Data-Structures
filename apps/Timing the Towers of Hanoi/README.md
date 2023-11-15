@@ -1,9 +1,12 @@
 # Algorithm Execution Time Analysis
 
-This repository contains files designed for testing and analyzing the execution times of recursive and iterative algorithms. The primary focus is on two tests:
+This repository contains files designed for testing and analyzing the execution times of recursive and iterative algorithms wriiten to solve the Towers of Hanoi mathematical puzzle
+Mathematical Equation: H(n) = 2H(n-1) + 1
 
-## Fibonacci Number Computation
-- The first test incorporates the `chrono` library to measure the time taken for computing the n-th Fibonacci number.
+## Assignment 1 Part 2
+- Test 1
+- The first test incorporates the `chrono` library to measure the time taken for computing the following amount of disks: 5, 10, 15, 20, 25, 30, and 35.
+- 
 - The results showed the iterative implementation was faster 
 
 ## Tower of Hanoi
