@@ -1,33 +1,60 @@
+//
+/*
+File: hanoiit.cpp
+This code is an iterative implementation of the Towers of Hanoi puzzle
+The purpose of this code is to compute how long 5, 10, 15, 20, 25, 30, and 35 disks compare the iterative and recursive implementations
+*/
+
 #include <iostream>
 #include <chrono>
+#include <ratio>
 #include <stack>
 #include <cmath>
+
 using namespace std;
 
 void moveDisks(int, stack<int> &, stack<int> &, stack<int>&);
-void printIt(int , char , char );
-void MoveDisksHelper(stack<int> &, stack<int> &, char , char ) ;
+void printIt(int, char , char );
+void MoveDisksHelper(stack<int> &, stack<int> &, char , char );
 
-int main() {
-  for (auto numdisks: {3,5,6}) {
-      stack<int> source;
-      stack<int> dest;
-      stack<int> aux;
-      cout << "Numdisks: " << numdisks << endl;
-      moveDisks(numdisks, source, aux, dest);
-      cout << "Moved " << numdisks << " pegs." <<  endl;
+int main() 
+{
+    for (auto numdisks :{5, 10, 15, 20, 25, 30, 35})
+    {
+        cout << "Numdisks: " << numdisks << endl;
+        chrono::duration<int, ::milli> d(10);
+
+        d = chrono::milliseconds(5);
+
+        stack<int> source;
+        stack<int> dest;
+        stack<int> aux;
+
+        auto start = chrono::steady_clock::now();
+        cout << "Numdisks: " << numdisks << '\n';
+        moveDisks(numdisks, source, aux, dest);
+        auto end = chrono::steady_clock::now();
+        cout << "Moved " << numdisks << " pegs." << '\n';
+
+        chrono::duration<double> elapsed_seconds = end-start;
+        cout << "Elapsed time: " << elapsed_seconds.count() << "s\n";
     }
+
     return 0;
 }
 
-void moveDisks(int num, stack<int> &fromPeg, stack<int> &tempPeg, stack<int> &toPeg) {
-  char s = 'S', d = 'D', a = 'A';
-  if (num % 2 == 0) { // Swap in num disks is even.
+// Move function
+void moveDisks(int num, stack<int> &fromPeg, stack<int> &tempPeg, stack<int> &toPeg) 
+{
+  char s = 'S', d = 'D', a = 'A';  // Swap in num disks is even.
+  if (num % 2 == 0) 
+  {
     char temp = d;
     d = a;
     a = temp;
   }
-  int numberOfMoves = pow(2, num) - 1;
+
+  double numberOfMoves = pow(2, num) - 1;
   for (int i = num; i >= 1; i--) {
     fromPeg.push(i);
   }
@@ -80,11 +107,41 @@ void MoveDisksHelper(stack<int> &source, stack<int> &dest, char s, char d) {
   }
 }
 
-void printIt(int disk, char fromPeg, char toPeg) {
-  // Do nothing for timing test, but otherwise
-  std::cout<< "Move disk "<<disk
-           << "from peg " << fromPeg
-           << "to peg " << toPeg << std::endl;
+
+void printIt(int disk, char fromPeg, char toPeg) 
+{
+    cout << "Move disk " << disk
+        << "from peg " << fromPeg
+        << "to peg " << toPeg << endl;
 }
 
+// Notes from class lecture ///
+//
+// 
+//long fibit(int num) {
+//    long x = 0, y = 1, z = 0;
+//    for (int i = 0; i < num; i++) {
+//        cout << x << " ";
+//        z = x + y;
+//        x = y;
+//        y = z;
+//    }
+//    return z;
+//}
 
+//Note how much faster the iterative version is for this problem
+//This is a result of the overhead of function calls in the recursive
+//version
+//
+//
+// <chrono> lib has three concepts: clocks, time points, and durations.
+// clocks: epoch - start of time/ tick rate / system_clock as primary.
+// time points: clocks have now() member function that returns a time passed since epoch.///time_point: represents amount of time since start of clock. ex time_point<system_clock> t = system_clock::now();
+// 
+// duration examples:
+// std::chrono::duration<int, std::milli> d(10);
+//d = std::chrono::milliseconds(5);
+//d = std::chrono::seconds(10)
+//
+// References:
+// Dr. Adam Lewis. "hanoitt.cpp" https://github.com/adamwadelewis/cs372.lewis.fa23/blob/main/apps/hanoi/hanoiit.cpp

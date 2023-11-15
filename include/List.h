@@ -1,6 +1,6 @@
 // File Name: List.h
 
-//Implementation of a double linked list
+// another version of an implementation of a double linked list
 
 #pragma once
 #include <iostream>
