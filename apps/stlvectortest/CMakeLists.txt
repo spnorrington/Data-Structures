@@ -1,20 +1,12 @@
-﻿# CMakeList.txt : CMake project for stlvectortest, include source and define
-# project stlvectortest
-#
-cmake_minimum_required (VERSION 3.8)
+cmake_minimum_required(VERSION 3.1)
 
-# Enable Hot Reload for MSVC compilers if supported.
-if (POLICY CMP0141)
-  cmake_policy(SET CMP0141 NEW)
-  set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
-endif()
-
+#set the project name
 project ("stlvectortest")
 
-# Add source to this project's executable.
-add_executable (stlvectortest "stlvectortest.cpp" "stlvectortest.h")
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET stlvectortest PROPERTY CXX_STANDARD 20)
-endif()
+include_directories(../../include)
 
+# add the executables
+add_executable (stlvectortest "stlvectortest")
