@@ -1,17 +1,11 @@
 //
-// File: vector.hpp
-// Simplified version of the C++ STL vector class created by Professor Dr. Adam Lewis
-// including code in library for implementations of vector class functions
-// This code is an example of an implementation of a dynamic array
+// File: ArrayClass.h
 // 
-// Information //
-// Dynamic Memory Allocation: The use of new to allocate memory for an array of elements.
-// Dynamic Resizing :The push_back function that expands the array when its capacity is reached.
-//
-// Index Access and Bounds Checking : Accessing elements using the at function with bounds checking.
-//
-// Copy Constructor and Assignment Operator : Copy constructor and assignment operator to handle proper copying of elements
-
+// This program implements the Array template class, which is a wrapper around the base c++ array data type for cohesion and type safety. Having an Array class alongside the Vector class increases cohesion in the library. Additionally, the Array class enhances type safety by wrapping the base c++ array type in a class that can be used in the Vector class, which avoids the safety type issues with arrays.
+// 
+// The Array Template Class will use the same convention as the STL and parametrize the array class by the data type of the array. Public interface will be the same as the Vector class, including the array Index operator, except for some data from the vector class that is not valid for the array class.
+// 
+// 
 
 
 #pragma once
@@ -41,7 +35,7 @@ public:
 		arr = nullptr;
 	}
 
-	void put(T data, int index)
+	void vector::put(T data, int index)
 	{
 		if (index == vCapacity)
 		{
@@ -118,9 +112,9 @@ public:
 	};
 
 	// Overloading the array index operator
-	// Overloading Operators gives us the ability to define things like assignment, and comparison when needed. Holds for array indexes and function calls
+	// Overloading Operators gives us the ability to define things like equility, assignment, and comparison when needed. Holds for array indexes and function calls
 
-	T& operator[](int i) 
+	const T& operator[](int i) const
 	{
 		if ((i < 0) || (i >= length)) 
 		{
@@ -189,7 +183,54 @@ private:
 };
 
 
+template <typename T, size_t Size>
+class Array 
+{
+public:
+	Array() 
+	{
+		arr = default;
+	}
 
+	Array(const Array& obj) 
+	{
+		arr = new T[Size];
+		for (size_t i = 0; i < Size; i++) 
+		{
+			arr[i] = obj.at(i);
+		}
+	}
+
+	~Array()
+	{
+		delete[] arr;
+		arr = nullptr;
+	}
+
+	const T& operator[](size_t i) 
+	{
+		if (i >= Size) {
+			std::cerr << "Array index out of bounds" << std::endl;
+			// Handle or exit appropriately
+		}
+		return arr[i];
+	}
+
+	const T& operator[](size_t i) const 
+	{
+		if (i >= Size) 
+		{
+			std::cerr << "Array index out of bounds" << std::endl;
+			// Handle or exit appropriately
+		}
+		return arr[i];
+	}
+
+	// Other member functions similar to Vector that make sense for an Array
+
+private:
+	T* arr;
+};
 
 // Vector abstract data type will have  generic type t data values
 // 
