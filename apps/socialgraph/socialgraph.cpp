@@ -76,7 +76,8 @@ int main()
 	{
 		// add code to print the path to Kevin Bacon
 	}
-	else {
+	else 
+	{
 		//  not connected to Kevin Bacon.
 	}
 
