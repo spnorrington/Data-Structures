@@ -10,36 +10,68 @@
 #include "vector.h"
 
 template <typename Thing>
-class Bag {
+class ReceiptBag 
+{
 public:
-    void insert(Thing aThing) {
+    int insert(Thing aThing) 
+    {
         bagContents.push_back(aThing);
         bagSize++;
+        return nextReceipt++;
     }
-    Thing& pop() {
+    // The `remove` function takes a receipt and removes the corresponding item
+       // It returns a reference to the removed item
+    Thing& remove(int receipt) 
+    {
         Thing aThing;
-        if (bagContents.size() > 0) {
-            aThing = bagContents[bagSize];
-            bagSize--;
+        bool found = false;
+
+        // Iterate through the bag to find the item with the given receipt
+        for (int i = 0; i < bagSize; i++) 
+        {
+            if (receipts[i] == receipt) 
+            {
+                aThing = bagContents[i];
+                found = true;
+
+                // Remove the item from the bag
+                bagContents.erase(i);
+                receipts.erase(i);
+                bagSize--;
+
+                break;
+            }
         }
-        else {
-            std::cerr << "Can't pop out of an empty bag" << std::endl;
+        // If the receipt is not found, print an error message
+        if (!found) {
+            std::cerr << "Item with receipt " << receipt << " not found in the bag" << std::endl;
         }
         return aThing;
     }
-    int size() {
+
+    // Get the current size of the bag
+    int size() const 
+    {
         return bagSize;
     }
-    int count(Thing aThing) {
+
+    // Get the count of a specific item in the bag
+    int count(Thing aThing) const 
+    {
         int bagCount = 0;
-        for (int i = 0; i < bagSize; i++) {
-            if (bagContents[i] == aThing) {
+        for (int i = 0; i < bagSize; i++) 
+        {
+            if (bagContents[i] == aThing) 
+            {
                 bagCount++;
             }
         }
         return bagCount;
     }
+
 private:
-    vector<Thing> bagContents;
+    Vector<Thing> bagContents;  // Using your Vector class for the bag contents
+    Vector<int> receipts;  // Vector to store receipts corresponding to items
     int bagSize = 0;
+    int nextReceipt = 1;  // The next available receipt number
 };
