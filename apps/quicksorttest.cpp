@@ -5,7 +5,7 @@
 //
 //Then write a program that use the C++ STL chrono library(as you did for the Towers of Hanoi problem at the start of semester) that randomly generates vectors of 100, 500, 1000, 5000, and 10000 integers, times how long it takes your Quicksort function to sort each vector and then times how long it takes the std::sort() function from the STL algorithms library to sort the same vector.
 // 
-// quicksort_test.cpp
+// File: quicksorttest.cpp
 
 #include <iostream>
 #include <vector>
