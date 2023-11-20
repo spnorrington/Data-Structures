@@ -4,31 +4,37 @@
 #include "SeqContainer.hpp" // Include the header file for SeqContainer
 
 template <typename T>
-class SeqContainer; // Forward declaration
-
-template <typename T>
 class Vector : public SeqContainer<T>
 {
 public:
-    Vector();
-    Vector(const Vector& obj);
-    ~Vector();
+    Vector() : SeqContainer<T>() {}
 
-    void put(T data, int index);
-    void push_back(T data);
-    T& at(int index);
+    Vector(const Vector& obj) : SeqContainer<T>(obj) {}
 
-    int size() const; // Include missing method size()
-    int capacity() const; // Include missing method capacity()
-    void traverse() const; // Include missing method traverse()
+    ~Vector() {}
 
-    // Operator overloading
-    bool operator==(Vector& other) const;
-    T& operator[](int i);
+    bool empty() const { return this->size() == 0; }
 
-    // Overloading the assignment operator
-    Vector& operator=(const Vector& source);
+    void push(T data) { this->push_back(data); }
 
-private:
-    // arr, vCapacity, and length declared in SeqContainer
+    T pop()
+    {
+        if (this->empty())
+        {
+            std::cerr << "Vector: pop() called on an empty vector" << std::endl;
+            exit(1);
+        }
+
+        T lastElement = this->at(this->size() - 1);
+        this->erase(this->end() - 1);
+        return lastElement;
+    }
+
+    void traverse(void (*doIt)(T data)) const
+    {
+        for (auto it = this->begin(); it != this->end(); ++it)
+        {
+            doIt(*it);
+        }
+    }
 };
