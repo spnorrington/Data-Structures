@@ -21,73 +21,82 @@ template <typename T>
 class Vector
 {
 public:
+	// Default Constructor
 	Vector()
 	{
-		arr = new T[1];
-		vCapacity = 1;
-		length = 0;
+		arr = new T[1]; // Initalize array with 1 element
+		vCapacity = 1;  // Initalize capacity to 1
+		length = 0;  // Initalize length
 	}
+	// Copy Constructor
 	Vector(const Vector& obj)
 	{
-		this->arr = new T[obj.capacity()];
+		this->arr = new T[obj.capacity()]; //allocate memory
 		for (int i = 0; i < obj.size(); i++)
 		{
-			this->put(i, obj.at(i));
+			this->put(i, obj.at(i)); //copy elements from the source object
 		}
 	}
+	// Destructor
 	~Vector()
 	{
-		delete[] arr;
-		arr = nullptr;
+		delete[] arr; //free memory
+		arr = nullptr; //set to null to avoid dangling pointer
 	}
 
+	// Insert data at a specfic index
 	void put(T data, int index)
 	{
 		if (index == vCapacity)
 		{
-			push_back(T data);
+			push_back(T data); // if index is equal to capacity, push back
 		}
 		else
 		{
-			arr[index] = data;
+			arr[index] = data; // else insert data at index
 		}
 	}
 
+	// add an element to the end of the vector
 	void push_back(T data)
 	{
 		// if number of elements is equal to capacity
 			// than we need to reallocate and deep copy
 		if (length == vCapacity)
 		{
-			expand(2 * vCapacity);
+			expand(2 * vCapacity); // double the capacity
 		}
-		arr[length] = data;
+		arr[length] = data; // add the new element
 		length++;
 	}
 
+	// access an element at a specific index
 	T &at(int index)
 	{
 		if (index < 0 || index >= length)
 		{
 			std::cerr << "Vector: index out of bounds on access" << std::endl;
-			exit(1);
+			exit(1); // Display error message and exit if index is out of bounds
 		}
 		else
 		{
-			return arr[index];
+			return arr[index]; // return a reference to the element at index
 		}
 	}
 
+	// Get number of elements in the vector
 	int size() const
 	{
 		return length;
 	}
 
+	// Get the current capacity of the vector
 	int capacity() const
 	{
 		return vCapacity;
 	}
 
+	// Display the elements of the vector
 	void traverse() const
 	{
 		for (int i = 0; i < length; i++)
@@ -97,7 +106,7 @@ public:
 		std::cout << std::endl;
 	}
 
-	// Operator overloading
+	// Operator overloading for equality check
 	bool operator==(Vector& other) const 
 	{
 		if (other.size() != length) 
@@ -117,9 +126,7 @@ public:
 		return true;
 	};
 
-	// Overloading the array index operator
-	// Overloading Operators gives us the ability to define things like assignment, and comparison when needed. Holds for array indexes and function calls
-
+	// Operator overloading for array-like access
 	T& operator[](int i) 
 	{
 		if ((i < 0) || (i >= length)) 
@@ -128,12 +135,6 @@ public:
 		}
 		return at(i);
 	}
-
-	//Vector(Vector& obj) {
- // Reset self
-	//this->arr = new T[obj.capacity()];
-	//for (int i = 0; i < obj.size(); i++) {
-	//	this->put(i, obj.at(i)));
 
 
 	Vector& operator=(const Vector& source) 
@@ -156,9 +157,9 @@ public:
 	}
 
 private:
-	T* arr = new T[1];
-	int vCapacity = 1;
-	int length = 0;
+	T* arr = new T[1]; // Pointer to an array of type t with inital size of 1
+	int vCapacity = 1; // current capacity of the vector
+	int length = 0; //current length (number of elements)
 
 	// We have to address the “dynamic” aspects of this class.There are
 	//	going to be times when we are working with a Vector object that
@@ -167,17 +168,19 @@ private:
 	// 
 	// Make certain that you update the vCapacity and remember to set the class member to point at the new buffer.
 
-	void expand(int newCapacity){
-		if (newCapacity > vCapacity) 
+	// Expand the size of the vector
+	void expand(int newCapacity) 
+	{
+		if (newCapacity > vCapacity)
 		{
-			T *temp = new T[newCapacity];
-			for (int i = 0; i < length; i++) 
+			T* temp = new T[newCapacity]; // Allocate memory for a new array with the new capacity
+			for (int i = 0; i < length; i++)
 			{
-				temp[i] = arr[i];
+				temp[i] = arr[i]; // Copy elements from the old array to the new array
 			}
-			delete[] arr;
-			vCapacity = newCapacity;
-			arr = temp;
+			delete[] arr; // Free the memory occupied by the old array
+			vCapacity = newCapacity; // Update the capacity
+			arr = temp; // Update the pointer to the new array
 		}
 		else 
 		{
