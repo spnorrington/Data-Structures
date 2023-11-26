@@ -56,6 +56,19 @@ _______________________________
 </details>
 
 _______________________________
+
+<details>
+  <summary>Module 4</summary>
+  
+- ##### Assignment 4 Part 1
+> [Hot Potatoe](https://github.com/spnorrington/cs372.norris/blob/main/apps/hotpotato/hotpotato.cpp)
+>
+
+- ##### Assignment 4 Part 2
+
+</details>
+
+_____________________________________
   
 <details>
   <summary>Module 8</summary>
