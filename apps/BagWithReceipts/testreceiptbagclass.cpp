@@ -1,4 +1,5 @@
 // Test file for receiptbag class 
+#include "bagreceipt"
 #include <iostream>
 #include <set>
 
