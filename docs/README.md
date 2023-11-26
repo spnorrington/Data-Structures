@@ -48,6 +48,12 @@
   > 
   > [CMake](https://github.com/spnorrington/cs372.norris/blob/main/apps/listtest/CMakeLists.txt)
 
+ ###### _Module 8_
+- ##### Assignment 9 Part 1
+> [Quicksortt Test](https://github.com/spnorrington/cs372.norris/blob/main/apps/quicksorttest.cpp)
+>
+> [QuickSort Template Function Version of Quicksort](https://github.com/spnorrington/cs372.norris/blob/main/include/quicksort.hpp)
+>
 
 CS372 Documents
 ==================================
