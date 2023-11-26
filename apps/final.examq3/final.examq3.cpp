@@ -1,4 +1,7 @@
-﻿//
+﻿// References: https://www.geeksforgeeks.org/templates-cpp/
+// 
+// https://stackoverflow.com/questions/76077719/initializing-static-const-stdarray-with-a-static-function-removes-const-makes
+
 
 
 
