@@ -1,4 +1,7 @@
 // Test file for receiptbag class 
+
+
+#include "receiptbag.hpp"
 #include <iostream>
 #include <set>
 
