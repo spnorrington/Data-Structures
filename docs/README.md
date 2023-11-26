@@ -6,14 +6,14 @@
 - ##### Assignment 1 Part 1
   > [Pointer Anti-patterns](https://github.com/spnorrington/cs372.norris/tree/main/apps/assignment1PartA)
 
-    ------------------------------
+ 
 
 - ##### Assignment 1 Part 2
   > [Hanoi Files](https://github.com/spnorrington/cs372.norris/tree/main/apps/hanoi)
   > [CMake File](https://github.com/spnorrington/cs372.norris/blob/main/apps/hanoi/CMakeLists.txt)
   > [Results](https://github.com/spnorrington/cs372.norris/blob/main/apps/hanoi/results.txt)
 
-
+   ------------------------------
 ##### _Module 2_
 
 
@@ -38,6 +38,9 @@
   > 
   > [CMake](https://github.com/spnorrington/cs372.norris/blob/main/apps/BagWithReceipts/CMakeLists.txt)
 
+   ------------------------------
+  ##### _Module 3_
+  
 - Assignment 3 Part 1
   > [List.h](https://github.com/spnorrington/cs372.norris/blob/main/include/List.h)
   > 
