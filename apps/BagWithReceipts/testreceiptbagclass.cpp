@@ -1,6 +1,5 @@
 // Test file for receiptbag class 
 #include <iostream>
-#include "receiptbag.hpp"
 #include <set>
 
 bool fncomp(int lhs, int rhs) { return lhs < rhs; }
