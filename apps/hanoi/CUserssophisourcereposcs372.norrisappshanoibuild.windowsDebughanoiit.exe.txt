@@ -1,0 +1,13 @@
+Numdisks: 5
+Moved 5 pegs.
+Elapsed time: 3.7e-05 seconds
+Numdisks: 10
+Moved 10 pegs.
+Elapsed time: 0.0009251 seconds
+Numdisks: 15
+Moved 15 pegs.
+Elapsed time: 0.0252428 seconds
+Numdisks: 20
+Moved 20 pegs.
+Elapsed time: 0.890565 seconds
+Numdisks: 25
