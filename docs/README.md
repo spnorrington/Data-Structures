@@ -2,7 +2,7 @@
 ###### Implemented a menu selection for ungraded work to make repo more user friendly since I included have put unnecessary files 
 
 
-
+_______________________________
 ###### _Module 1_
 
 - ##### Assignment 1 Part 1
@@ -17,7 +17,7 @@
   > 
   > [Results](https://github.com/spnorrington/cs372.norris/blob/main/apps/hanoi/results.txt)
 
-   ------------------------------
+_______________________________
 ###### _Module 2_
 
 
@@ -42,7 +42,7 @@
   > 
   > [CMake](https://github.com/spnorrington/cs372.norris/blob/main/apps/BagWithReceipts/CMakeLists.txt)
 
-   ------------------------------
+_______________________________
 ###### _Module 3_
   
 - ##### Assignment 3 Part 1
@@ -52,7 +52,7 @@
   > 
   > [CMake](https://github.com/spnorrington/cs372.norris/blob/main/apps/listtest/CMakeLists.txt)
 
-   ------------------------------
+_______________________________
   
  ###### _Module 8_
 - ##### Assignment 9 Part 1
