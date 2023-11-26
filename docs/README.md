@@ -65,7 +65,7 @@ _______________________________
 >
 
 - ##### Assignment 4 Part 2
-> [Sequential Container](https://github.com/spnorrington/cs372.norris/blob/main/include/SequenceContainer.hpp)
+> [Sequential Container](https://github.com/spnorrington/cs372.norris/blob/main/include/SeqContainer.hpp)
 >
 > [Modified Vector Class](https://github.com/spnorrington/cs372.norris/blob/main/include/seqcontainervector.hpp)
 > 
