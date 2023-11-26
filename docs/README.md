@@ -1,6 +1,5 @@
 # Programming Assignments Menu Selection
 
-<br />
 
 ###### _Module 1_
 
@@ -14,7 +13,6 @@
   > [CMake File](https://github.com/spnorrington/cs372.norris/blob/main/apps/hanoi/CMakeLists.txt)
   > [Results](https://github.com/spnorrington/cs372.norris/blob/main/apps/hanoi/results.txt)
 
-<br />
 
 ##### _Module 2_
 
