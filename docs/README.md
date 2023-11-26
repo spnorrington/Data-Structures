@@ -1,3 +1,47 @@
+# Programming Assignments MENU
+
+<br />
+
+###### _Module 1_
+
+- ##### Assignment 1 Part 1
+  > [Pointer Anti-patterns](https://github.com/spnorrington/cs372.norris/tree/main/apps/assignment1PartA)
+
+    ------------------------------
+
+- ##### Assignment 1 Part 2
+  > [Hanoi Files](https://github.com/spnorrington/cs372.norris/tree/main/apps/hanoi)
+  > [CMake File](https://github.com/spnorrington/cs372.norris/blob/main/apps/hanoi/CMakeLists.txt)
+  > [Results](https://github.com/spnorrington/cs372.norris/blob/main/apps/hanoi/results.txt)
+
+<br />
+
+##### _Module 2_
+
+
+- Assignment 2 Part 1
+  > [vector.hpp](https://github.com/spnorrington/cs372.norris/blob/a3b082d36d74d7cd5bf7c78273a63eabb72c884c/include/vector.hpp)
+  > 
+  > [stlvectest.cpp](https://github.com/spnorrington/cs372.norris/blob/a3b082d36d74d7cd5bf7c78273a63eabb72c884c/apps/stlvectortest/stlvectest.cpp)
+  > 
+  > [CMakeLists.txt](https://github.com/spnorrington/cs372.norris/blob/a3b082d36d74d7cd5bf7c78273a63eabb72c884c/apps/stlvectortest/CMakeLists.txt)
+
+- Assignment 2 Part 2
+  > [Array Class](https://github.com/spnorrington/cs372.norris/blob/main/include/ArrayClass.hpp)
+  
+
+
+- Assignment 2 Part 3
+  > [vector.hpp](https://github.com/spnorrington/cs372.norris/blob/a3b082d36d74d7cd5bf7c78273a63eabb72c884c/include/vector.hpp)
+  > 
+  > [bagwithreceipt](https://github.com/spnorrington/cs372.norris/blob/main/include/receiptbag.hpp)
+  > 
+  > [testbagwithreceipts](https://github.com/spnorrington/cs372.norris/blob/main/apps/BagWithReceipts/testreceiptbagclass.cpp)
+  > 
+  > [CMake](https://github.com/spnorrington/cs372.norris/blob/main/apps/BagWithReceipts/CMakeLists.txt)
+
+
+
 CS372 Documents
 ==================================
 This folder is for any documents you need to produce for the class.
