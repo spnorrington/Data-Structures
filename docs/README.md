@@ -39,7 +39,7 @@
   > [CMake](https://github.com/spnorrington/cs372.norris/blob/main/apps/BagWithReceipts/CMakeLists.txt)
 
    ------------------------------
-  ###### _Module 3_
+###### _Module 3_
   
 - ##### Assignment 3 Part 1
   > [List.h](https://github.com/spnorrington/cs372.norris/blob/main/include/List.h)
@@ -48,6 +48,8 @@
   > 
   > [CMake](https://github.com/spnorrington/cs372.norris/blob/main/apps/listtest/CMakeLists.txt)
 
+   ------------------------------
+  
  ###### _Module 8_
 - ##### Assignment 9 Part 1
 > [Quicksortt Test](https://github.com/spnorrington/cs372.norris/blob/main/apps/quicksorttest.cpp)
