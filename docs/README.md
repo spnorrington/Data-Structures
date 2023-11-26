@@ -66,7 +66,12 @@ _______________________________
 
 - ##### Assignment 4 Part 2
 > [Sequential Container](https://github.com/spnorrington/cs372.norris/blob/main/include/SequenceContainer.hpp)
+>
+> [Modified Vector Class](https://github.com/spnorrington/cs372.norris/blob/main/include/seqcontainervector.hpp)
 > 
+> [Test](https://github.com/spnorrington/cs372.norris/blob/main/apps/Adding%20Iterators%20to%20other%20classes/seqcontainervecttest.cpp)
+> 
+> [CMake](https://github.com/spnorrington/cs372.norris/blob/main/apps/Adding%20Iterators%20to%20other%20classes/CMakeLists.txt)
 
 </details>
 
