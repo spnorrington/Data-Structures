@@ -1,5 +1,5 @@
 # Programming Assignments Menu Selection For Professor 
-###### Implemented a menu selection to make repo more user friendly since I included have put unnecessary files
+###### Implemented a menu selection for ungraded work to make repo more user friendly since I included have put unnecessary files
 
 ###### _Module 1_
 
