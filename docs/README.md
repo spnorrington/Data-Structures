@@ -17,19 +17,19 @@
 ##### _Module 2_
 
 
-- Assignment 2 Part 1
+- ##### Assignment 2 Part 1
   > [vector.hpp](https://github.com/spnorrington/cs372.norris/blob/a3b082d36d74d7cd5bf7c78273a63eabb72c884c/include/vector.hpp)
   > 
   > [stlvectest.cpp](https://github.com/spnorrington/cs372.norris/blob/a3b082d36d74d7cd5bf7c78273a63eabb72c884c/apps/stlvectortest/stlvectest.cpp)
   > 
   > [CMakeLists.txt](https://github.com/spnorrington/cs372.norris/blob/a3b082d36d74d7cd5bf7c78273a63eabb72c884c/apps/stlvectortest/CMakeLists.txt)
 
-- Assignment 2 Part 2
+- ##### Assignment 2 Part 2
   > [Array Class](https://github.com/spnorrington/cs372.norris/blob/main/include/ArrayClass.hpp)
   
 
 
-- Assignment 2 Part 3
+- ##### Assignment 2 Part 3
   > [vector.hpp](https://github.com/spnorrington/cs372.norris/blob/a3b082d36d74d7cd5bf7c78273a63eabb72c884c/include/vector.hpp)
   > 
   > [bagwithreceipt](https://github.com/spnorrington/cs372.norris/blob/main/include/receiptbag.hpp)
@@ -41,7 +41,7 @@
    ------------------------------
   ##### _Module 3_
   
-- Assignment 3 Part 1
+- ##### Assignment 3 Part 1
   > [List.h](https://github.com/spnorrington/cs372.norris/blob/main/include/List.h)
   > 
   > [listtest.cpp](https://github.com/spnorrington/cs372.norris/blob/main/apps/listtest/listtest.cpp)
