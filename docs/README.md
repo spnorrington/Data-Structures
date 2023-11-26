@@ -1,5 +1,5 @@
-# Programming Assignments Menu Selection
-###### Implemented a menu selection to make repo more user friendly
+# Programming Assignments Menu Selection For Professor 
+###### Implemented a menu selection to make repo more user friendly since I may have put an excess amount of stuff on my repo
 
 ###### _Module 1_
 
