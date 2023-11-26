@@ -65,6 +65,9 @@ _______________________________
 >
 > [QuickSort Template Function Version of Quicksort](https://github.com/spnorrington/cs372.norris/blob/main/include/quicksort.hpp)
 >
+
+</details>
+
 _______________________________
 CS372 Documents
 ==================================
