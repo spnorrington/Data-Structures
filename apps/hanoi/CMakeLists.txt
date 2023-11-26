@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 include_directories(../../include)
 
 #add the executable
-#add_executable(hanoi hanoi.cpp)
+add_executable(hanoi hanoi.cpp)
 
 add_executable(hanoiit hanoiit.cpp)
 

@@ -6,8 +6,8 @@
 //receipt.The function removes the item matching the receipt and returns a reference to the removed item.Implement the `ReceiptBag` class, with appropriate test scripts, in your library that implements this ADT
 
 #pragma once
-#include "vector.hpp"
 #include <iostream>
+#include "vector.h"
 
 template <typename Thing>
 class ReceiptBag 
