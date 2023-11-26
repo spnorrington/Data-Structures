@@ -3,12 +3,11 @@
 
 
 _______________________________
-###### _Module 1_
+<details>
+  <summary>Module 1</summary>
 
 - ##### Assignment 1 Part 1
   > [Pointer Anti-patterns](https://github.com/spnorrington/cs372.norris/tree/main/apps/assignment1PartA)
-
- 
 
 - ##### Assignment 1 Part 2
   > [Hanoi Files](https://github.com/spnorrington/cs372.norris/tree/main/apps/hanoi)
@@ -16,10 +15,11 @@ _______________________________
   > [CMake File](https://github.com/spnorrington/cs372.norris/blob/main/apps/hanoi/CMakeLists.txt)
   > 
   > [Results](https://github.com/spnorrington/cs372.norris/blob/main/apps/hanoi/results.txt)
+</details>
 
 _______________________________
-###### _Module 2_
-
+<details>
+  <summary>Module 2</summary>
 
 - ##### Assignment 2 Part 1
   > [vector.hpp](https://github.com/spnorrington/cs372.norris/blob/a3b082d36d74d7cd5bf7c78273a63eabb72c884c/include/vector.hpp)
@@ -30,9 +30,7 @@ _______________________________
 
 - ##### Assignment 2 Part 2
   > [Array Class](https://github.com/spnorrington/cs372.norris/blob/main/include/ArrayClass.hpp)
-  
-
-
+  > 
 - ##### Assignment 2 Part 3
   > [vector.hpp](https://github.com/spnorrington/cs372.norris/blob/a3b082d36d74d7cd5bf7c78273a63eabb72c884c/include/vector.hpp)
   > 
@@ -41,10 +39,13 @@ _______________________________
   > [testbagwithreceipts](https://github.com/spnorrington/cs372.norris/blob/main/apps/BagWithReceipts/testreceiptbagclass.cpp)
   > 
   > [CMake](https://github.com/spnorrington/cs372.norris/blob/main/apps/BagWithReceipts/CMakeLists.txt)
+</details>
 
 _______________________________
-###### _Module 3_
-  
+<details>
+  <summary>Module 3</summary>
+
+
 - ##### Assignment 3 Part 1
   > [List.h](https://github.com/spnorrington/cs372.norris/blob/main/include/List.h)
   > 
@@ -52,15 +53,19 @@ _______________________________
   > 
   > [CMake](https://github.com/spnorrington/cs372.norris/blob/main/apps/listtest/CMakeLists.txt)
 
+</details>
+
 _______________________________
   
- ###### _Module 8_
+<details>
+  <summary>Module 8</summary>
+
 - ##### Assignment 9 Part 1
 > [Quicksortt Test](https://github.com/spnorrington/cs372.norris/blob/main/apps/quicksorttest.cpp)
 >
 > [QuickSort Template Function Version of Quicksort](https://github.com/spnorrington/cs372.norris/blob/main/include/quicksort.hpp)
 >
-
+_______________________________
 CS372 Documents
 ==================================
 This folder is for any documents you need to produce for the class.
