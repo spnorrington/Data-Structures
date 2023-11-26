@@ -38,6 +38,12 @@
   > 
   > [CMake](https://github.com/spnorrington/cs372.norris/blob/main/apps/BagWithReceipts/CMakeLists.txt)
 
+- Assignment 3 Part 1
+  > [List.h](https://github.com/spnorrington/cs372.norris/blob/main/include/List.h)
+  > 
+  > [listtest.cpp](https://github.com/spnorrington/cs372.norris/blob/main/apps/listtest/listtest.cpp)
+  > 
+  > [CMake](https://github.com/spnorrington/cs372.norris/blob/main/apps/listtest/CMakeLists.txt)
 
 
 CS372 Documents
