@@ -14,7 +14,7 @@
   > [Results](https://github.com/spnorrington/cs372.norris/blob/main/apps/hanoi/results.txt)
 
    ------------------------------
-##### _Module 2_
+###### _Module 2_
 
 
 - ##### Assignment 2 Part 1
@@ -39,7 +39,7 @@
   > [CMake](https://github.com/spnorrington/cs372.norris/blob/main/apps/BagWithReceipts/CMakeLists.txt)
 
    ------------------------------
-  ##### _Module 3_
+  ###### _Module 3_
   
 - ##### Assignment 3 Part 1
   > [List.h](https://github.com/spnorrington/cs372.norris/blob/main/include/List.h)
