@@ -1,5 +1,5 @@
 # Programming Assignments Menu Selection For Professor 
-###### Implemented a menu selection for ungraded work to make repo more user friendly since I included have put unnecessary files (currently still being modified to reflect every assignment)
+###### Implemented a menu selection for ungraded work to make repo more user friendly since I included have put unnecessary files **(currently still being modified to reflect every assignment)**
 
 ###### _Module 1_
 
@@ -10,7 +10,9 @@
 
 - ##### Assignment 1 Part 2
   > [Hanoi Files](https://github.com/spnorrington/cs372.norris/tree/main/apps/hanoi)
+  > 
   > [CMake File](https://github.com/spnorrington/cs372.norris/blob/main/apps/hanoi/CMakeLists.txt)
+  > 
   > [Results](https://github.com/spnorrington/cs372.norris/blob/main/apps/hanoi/results.txt)
 
    ------------------------------
