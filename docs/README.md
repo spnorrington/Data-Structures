@@ -65,6 +65,8 @@ _______________________________
 >
 
 - ##### Assignment 4 Part 2
+> [Sequential Container](https://github.com/spnorrington/cs372.norris/blob/main/include/SequenceContainer.hpp)
+> 
 
 </details>
 
