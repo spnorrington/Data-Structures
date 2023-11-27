@@ -1,0 +1,48 @@
+Recursice results:
+
+Numdisks: 5
+Moved 5 pegs from peg 1 to peg 3
+Elapsed time: 2e-07 seconds
+
+Numdisks: 10
+Moved 10 pegs from peg 1 to peg 3
+Elapsed time: 2e-07 seconds
+
+Numdisks: 15
+Moved 15 pegs from peg 1 to peg 3
+Elapsed time: 1e-07 seconds
+
+Numdisks: 20
+Moved 20 pegs from peg 1 to peg 3
+Elapsed time: 2e-07 seconds
+
+Numdisks: 25
+Moved 25 pegs from peg 1 to peg 3
+Elapsed time: 1e-07 seconds
+
+Numdisks: 30
+Moved 30 pegs from peg 1 to peg 3
+Elapsed time: 5e-07 seconds
+
+Numdisks: 35
+Moved 35 pegs from peg 1 to peg 3
+Elapsed time: 1e-07 seconds
+
+Iterative results: 
+Numdisks: 5
+Moved 5 pegs.
+Elapsed time: 3.7e-05 seconds
+Numdisks: 10
+Moved 10 pegs.
+Elapsed time: 0.0009251 seconds
+Numdisks: 15
+Moved 15 pegs.
+Elapsed time: 0.0252428 seconds
+Numdisks: 20
+Moved 20 pegs.
+Elapsed time: 0.890565 seconds
+Numdisks: 25
+
+C:\Users\sophi\source\repos\cs372.norris\apps\hanoi\build.windows\Debug\hanoi.exe (process 29884) exited with code 0.
+To automatically close the console when debugging stops, enable Tools->Options->Debugging->Automatically close the console when debugging stops.
+Press any key to close this window . . .

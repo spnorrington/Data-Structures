@@ -1,3 +1,7 @@
+
+// Base Class for sequential (logical order) containers
+
+
 #pragma once
 template <typename T>
 class SeqContainer 
@@ -183,3 +187,30 @@ public:
         return to;
     }
 };
+
+
+// *************** NOTES ************** 
+// //Abstract class : A class that cannot be instantiated and has one
+//or more pure virtual functions which serves only as a base class
+//for derived classes.
+//Interface : An interface has no implementation and contains
+//only a virtual destructor and pure virtual functions.(AKA pure virtual functions)		
+// 
+// Must use type parameter T everywhere base class 
+/*
+EXAMPLE:
+
+
+template <class T>
+class Rectangle { ... };
+template <class T>
+class Square<T> : public Rectangle<T>
+{
+    ...
+};
+
+*/
+/*
+Base class: Class inherited from
+Derived class: Inherits from the base class
+*/
