@@ -48,22 +48,40 @@ double readAndEvaluate(istream& ins)
     stack<char> operations;
     double number;
     char symbol;
+
+    // Initializing expressions 
+    infixExpression = "";
+    postfixExpression = "";
+    prefixExpression = "";
+
+
     while (ins && ins.peek() != '\n') 
     {
         if (isdigit(ins.peek()) || (ins.peek() == DECIMAL)) 
         {
             ins >> number;
             numbers.push(number);
+            // Track the postfix expression
+            postfixExpression += to_string(number) + " ";
+            // Track the prefix expression
+            prefixExpression = to_string(number) + " " + prefixExpression;
         }
         else if (strchr("+-*/", ins.peek()) != NULL) 
         {
             ins >> symbol;
             operations.push(symbol);
+            // Track the postfix expression
+            postfixExpression += symbol;
+            // Track the prefix expression
+            prefixExpression = symbol + " " + prefixExpression;
         }
         else if (ins.peek() == RIGHTPAREN) 
         {
             ins.ignore();
             evaluateStackTops(numbers, operations);
+            // Track the postfix expression
+            postfixExpression += " ";
+
         }
         else 
         {
