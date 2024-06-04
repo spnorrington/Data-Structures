@@ -1,5 +1,12 @@
-# Programming Assignments Menu Selection For Professor 
-###### Implemented a menu selection for ungraded work to make repo more user friendly since I included have put unnecessary files 
+# Disclaimer
+This collection has been created utilizing insights and knowledge acquired during coursework. It refers to and incorporates material from Athen's State University
+
+# Notice
+This collection is intended solely for demonstration and educational purposes. The inclusion of material from the mentioned source is for illustrative and learning purposes only. Users are encouraged to refer to the original source material and adhere to academic integrity policies when utilizing this repository.
+
+
+
+# Programming Assignments Menu Selection
 
 
 _______________________________
